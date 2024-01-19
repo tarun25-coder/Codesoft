@@ -1,0 +1,30 @@
+contacts = {}
+
+def add_contact(name, phone_number, email):
+    contacts[name] = {'Phone Number': phone_number, 'Email': email}
+    print(f'Contact "{name}" added successfully.')
+
+def search_contact(name):
+    contact = contacts.get(name, 'Contact not found.')
+    print(f'Contact Information for {name}: {contact}')
+
+def display_contacts():
+    print('Contact Book:')
+    for name, info in contacts.items():
+        print(f'Name: {name}, Phone Number: {info["Phone Number"]}, Email: {info["Email"]}')
+
+while True:
+    print('\n1. Add Contact\n2. Search Contact\n3. Display Contacts\n4. Quit')
+    choice = input('Enter your choice (1-4): ')
+
+    if choice == '1':
+        add_contact(input('Enter the contact name: '), input('Enter the phone number: '), input('Enter the email address: '))
+    elif choice == '2':
+        search_contact(input('Enter the contact name to search: '))
+    elif choice == '3':
+        display_contacts()
+    elif choice == '4':
+        print('Exiting the contact book. Goodbye!')
+        break
+    else:
+        print('Invalid choice. Please enter a number between 1 and 4.')
